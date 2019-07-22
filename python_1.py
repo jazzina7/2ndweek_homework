@@ -32,6 +32,8 @@ def test_post():
     article['amount']=amount_receive
     article['address'] = address_receive
     article['phoneno'] = phoneno_receive
+    article['no'] = no
+
 
     no = no + 1
     articles.append(article)
@@ -47,10 +49,8 @@ def delete_article():
    no_receive = request.form['no_give']
 
    for article in articles:
-    if article['no']==no_receive:
+    if article['no']==int(no_receive):
        articles.remove(article)
-
-   del articles[no_receive]
 
    return jsonify({'result': 'success'})
 
